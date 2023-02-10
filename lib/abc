@@ -1,0 +1,208 @@
+import 'package:flutter/material.dart';
+import 'package:lab_7/CREATE.dart';
+
+class Add_List extends StatefulWidget {
+  Add_List({Key? key}) : super(key: key);
+
+  @override
+  State<Add_List> createState() => _Add_ListState();
+}
+
+class _Add_ListState extends State<Add_List> {
+  List<Map> users = [];
+
+  void initUsers() {
+    Map<String, dynamic> map = {};
+    map['title'] = 'Keshvi';
+    map['subtitle'] = '7774589564';
+
+    users.add(map);
+
+    map = {};
+    map['title'] = 'Priyanshi';
+    map['subtitle'] = '1313145456';
+
+    users.add(map);
+
+    map = {};
+    map['title'] = 'Mom';
+    map['subtitle'] = '9999999999';
+
+    users.add(map);
+
+    map = {};
+    map['title'] = 'Bro';
+    map['subtitle'] = '8899999999';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Daddy';
+    map['subtitle'] = '9999989999';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Vishva';
+    map['subtitle'] = '9994599999';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Kishan';
+    map['subtitle'] = '9988888899';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Home ';
+    map['subtitle'] = '9997775689';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Riya DU';
+    map['subtitle'] = '9829956999';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Krima';
+    map['subtitle'] = '9956898798';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Diya DU';
+    map['subtitle'] = '9568925368';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Shreya';
+    map['subtitle'] = '9999994569';
+
+    users.add(map);
+    map = {};
+    map['title'] = 'Keya';
+    map['subtitle'] = '9994523689';
+
+    users.add(map);
+  }
+
+  // final titles = [
+  //   "keshvi",
+  //   "priyanshi",
+  //   "mom",
+  //   "dad",
+  //   "vishva",
+  //   "bro",
+  //   "janki",
+  //   "riya",
+  //   "kishan",
+  //   "home"
+  // ];
+  // final subtitles = [
+  //   "Here is list 1 subtitle",
+  //   "Here is list 1 subtitle",
+  //   "Here is list 2 subtitle",
+  //   "Here is list 3 subtitle",
+  //   "Here is list 4 subtitle",
+  //   "Here is list 5 subtitle",
+  //   "Here is list 6 subtitle",
+  //   "Here is list 7 subtitle",
+  //   "Here is list 8 subtitle",
+  //   "Here is list 9 subtitle",
+  //   "Here is list 10 subtitle",
+  // ];
+  //
+  // final icons = [
+  //   Icons.access_alarm,
+  //   Icons.call_end_sharp,
+  //   Icons.call_made,
+  //   Icons.call,
+  //   Icons.call_made,
+  //   Icons.call_end_outlined,
+  //   Icons.call,
+  //   Icons.call_made_outlined,
+  //   Icons.cached_rounded,
+  //   Icons.home,
+  // ];
+
+  @override
+  void initState() {
+    super.initState();
+    initUsers();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title: Text('CALL HISTORY'), actions: [
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) {
+                  return Create_Page(
+                    callname: '',
+                    phonenumber: '',
+                  );
+                },
+              )).then((value) {
+                setState(() {
+                  users.add(value);
+                });
+
+                // print(value.toString());
+              });
+            },
+            child: Container(
+              margin: EdgeInsets.only(right: 10),
+              child: Icon(Icons.add_box),
+            ),
+          )
+        ]),
+        body:
+            // users.length < 0
+            //     ?
+            ListView.builder(
+          itemBuilder: (context, index) {
+            return Card(
+                child: ListTile(
+                    title: Text(users[index]['title']),
+                    subtitle: Text(users[index]['subtitle']),
+                    leading: CircleAvatar(
+                        backgroundImage: AssetImage(
+                      "images/call2.jpg",
+                    )),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.favorite),
+                            color: Colors.red,
+                            highlightColor: Colors.redAccent),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) {
+                                  return Create_Page(
+                                    callname: users[index]['title'],
+                                    phonenumber: users[index]['subtitle'],
+                                  );
+                                },
+                              )).then((value) {
+                                setState(() {
+                                  users[index] = value;
+                                });
+                              });
+                            },
+                            icon: const Icon(Icons.edit)),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.delete)),
+                      ],
+                    )));
+          },
+          itemCount: users.length,
+        )
+        // : Center(
+        //     child: Text(
+        //     'NO DATA FOUND',
+        //     style: TextStyle(fontSize: 20),
+        //   )),
+        );
+  }
+}
