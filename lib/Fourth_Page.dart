@@ -523,7 +523,7 @@ class FOURTH_PAGE extends StatelessWidget {
                                                   context,
                                                 );
                                               },
-                                              child: Text(r'1500$/day',
+                                              child: Text(r'  1200$/day',
                                                   style: TextStyle(
                                                       fontSize: 15,
                                                       fontWeight:

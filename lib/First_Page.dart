@@ -10,6 +10,7 @@ class FIRST_PAGE extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
+
           // MediaQuery.of(context).size.width < 500
           //     ? Center():
           LayoutBuilder(builder: (context, constraints) {
@@ -64,7 +65,7 @@ class FIRST_PAGE extends StatelessWidget {
                       color: Color.fromRGBO(1, 138, 184, 1),
                     ),
                     width: double.infinity,
-                    margin: EdgeInsets.only(top: 25, right: 50, left: 50),
+                    margin: EdgeInsets.only(top: 15, right: 50, left: 50),
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Row(
@@ -115,7 +116,7 @@ class FIRST_PAGE extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.all(15)),
+                  Padding(padding: EdgeInsets.all(10)),
                   // Text(
                   //   'Already have an account? Sign in',
                   //   style: TextStyle(
@@ -208,7 +209,7 @@ class FIRST_PAGE extends StatelessWidget {
                   //     margin: EdgeInsets.only(top: 100,left: 520)
                   // ),
                   Padding(
-                    padding: const EdgeInsets.only(left:00, top: 25),
+                    padding: const EdgeInsets.only(left: 00, top: 25),
                     child: Icon(Icons.crisis_alert_rounded),
                   ),
                   Padding(
@@ -238,7 +239,7 @@ class FIRST_PAGE extends StatelessWidget {
                       color: Color.fromRGBO(1, 138, 184, 1),
                     ),
                     width: double.infinity,
-                    margin: EdgeInsets.only(top: 25, right: 50, left: 50),
+                    margin: EdgeInsets.only(top: 15, right: 50, left: 50),
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Row(
