@@ -94,13 +94,34 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 120),
-              child: Text(
-                "Let's find a sport \ncar for you",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.left,
+              child: RichText(
+                text: TextSpan(children: [
+                  TextSpan(
+                      text: "Let's find a ",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                      text: "sport\ncar",
+                      style: TextStyle(
+                        color: Colors.black,
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.orangeAccent,
+                        decorationThickness: 1.5,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      )),
+                  TextSpan(
+                    text: " for you",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    // textAlign: TextAlign.left,
+                  ),
+                ], style: TextStyle(color: Colors.black),),
+
               ),
             ),
             Container(

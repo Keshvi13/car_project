@@ -143,11 +143,10 @@ class THIRD_PAGE extends StatelessWidget {
                         size: 17,
                       ),
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => SECOND_PAGE()),
-                        // );
+                          Navigator.pop(
+                              context
+                          );
+
                       },
                     ),
                   ),

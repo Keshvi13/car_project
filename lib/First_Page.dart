@@ -40,15 +40,38 @@ class FIRST_PAGE extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 35, right: 120),
-                    child: Text(
-                      'Find the ideal\nsport car for you.',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.left,
+                    child: RichText(
+
+                      text: TextSpan(children: [
+                        TextSpan(
+                            text: "Find the ",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            )),
+                        TextSpan(
+                            text: "ideal",
+                            style: TextStyle(
+                              color: Colors.black,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.orangeAccent,
+                              decorationThickness: 1.5,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30,
+                            )),
+                        TextSpan(
+                          text: "\nsport car for you.",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          // textAlign: TextAlign.left,
+                        ),
+                      ], style: TextStyle(color: Colors.black),),
+
                     ),
                   ),
+
                   Padding(
                     padding: const EdgeInsets.only(top: 500),
                     child: Text(
@@ -116,7 +139,7 @@ class FIRST_PAGE extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.all(10)),
+                  Padding(padding: EdgeInsets.all(5)),
                   // Text(
                   //   'Already have an account? Sign in',
                   //   style: TextStyle(

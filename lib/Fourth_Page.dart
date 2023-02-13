@@ -143,11 +143,9 @@ class FOURTH_PAGE extends StatelessWidget {
                         size: 17,
                       ),
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => SECOND_PAGE()),
-                        // );
+                        Navigator.pop(
+                          context
+                        );
                       },
                     ),
                   ),
@@ -475,7 +473,7 @@ class FOURTH_PAGE extends StatelessWidget {
                           fit: StackFit.expand,
                           children: [
                             Image.network(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhEJEMM8Dw6AE-CoadFBLR3WfkYMOxNqSujO8PdEL5LzfV41RM95qO-nBdsZS1_BEmv18&usqp=CAU',
+                              'https://i2-prod.mylondon.news/incoming/article9313114.ece/ALTERNATES/s1200d/Untitled.jpg',
                               fit: BoxFit.cover,
                             ),
                             Container(
