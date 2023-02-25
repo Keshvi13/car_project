@@ -1,6 +1,7 @@
 import 'package:car_project/First_Page.dart';
 import 'package:car_project/Second_Page.dart';
 import 'package:car_project/Third_Page.dart';
+import 'package:car_project/widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
