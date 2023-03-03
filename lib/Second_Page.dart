@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:car_project/Fourth_Page.dart';
 import 'package:car_project/Third_Page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -79,13 +77,16 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(210, 210, 210, 0.3),
-      body: Column(children: [
+      backgroundColor:
+      Color.fromRGBO(210, 210, 210, 0.9),
+      body: Column(
+
+          children: [
         Row(
           children: [
             Expanded(
                 child: Padding(
-              padding: const EdgeInsets.only(left: 3, right: 90),
+              padding:  EdgeInsets.only(left: 3, right: 90),
               // child: Icon(
               //   size: 30,
               //   Icons.drag_handle_rounded,
@@ -134,7 +135,7 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 50, right: 120),
+          padding: const EdgeInsets.only(top: 18, right: 100,left: 20),
           child: RichText(
             text: TextSpan(
               children: [
@@ -168,7 +169,7 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 45, left: 25, right: 25),
+          margin: EdgeInsets.only(top: 30, left: 25, right: 25),
           child: Column(
             children: [
               Row(
@@ -292,7 +293,7 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
           children: [
             Expanded(
                 child: Padding(
-                    padding: const EdgeInsets.only(left: 52, top: 9),
+                    padding: const EdgeInsets.only(left: 52, top: 3),
                     child: Text(
                       'New cars',
                       style:
@@ -300,7 +301,7 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
                     ))),
             Expanded(
                 child: Padding(
-                    padding: const EdgeInsets.only(left: 15, top: 9),
+                    padding: const EdgeInsets.only(left: 15, top: 3),
                     child: Card(
                         margin: EdgeInsets.all(35),
                         color: Color.fromRGBO(27, 41, 98, 1),
@@ -326,17 +327,20 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
                 // return Container(
                 //     child: Text(jsonDecode(snapshot.data!.body.toString())[5]['CarName'].toString()));
                 return Container(
-                    height: 380,
+                    height: 350,
                     child: ListView.builder(
                         itemCount:
                             jsonDecode(snapshot.data!.body.toString())
                                 .length,
                         itemBuilder: (context, index) {
                           return InkWell(
+
                             onTap: () {
+                              String Data=snapshot.data!.body;
+                             // print(Data);
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => THIRD_PAGE()),
+                                MaterialPageRoute(builder: (context) => THIRD_PAGE(data:Data,index: index,) ),
                               );
                             },
                             child: Card(
@@ -365,6 +369,7 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
                                                       (snapshot.data!.body)
                                                           .toString())[index]
                                                   ['CarName']),
+                                             
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontSize: 25,
@@ -437,6 +442,7 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
                                                                     .data!.body)
                                                                 .toString())[
                                                             index]['CarCost']),
+
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -458,6 +464,8 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
                                                           child: Icon(
                                                               Icons.delete),
                                                           onTap: () {
+                                                            // print(
+                                                            //     'DELETE::::::');
                                                             var id = (jsonDecode((snapshot
                                                                         .data!
                                                                         .body)
@@ -465,6 +473,7 @@ class _SECOND_PAGEState extends State<SECOND_PAGE> {
                                                                 index]['id']);
                                                             showDelete(id);
                                                           },
+
                                                         )
                                                         // CircleAvatar(
                                                         //     radius: 20,
